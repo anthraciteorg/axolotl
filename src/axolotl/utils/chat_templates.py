@@ -70,6 +70,9 @@ def get_chat_template(
                 f"`chat_template choice is {_DEFAULT_TEMPLATE_CHOICE} but tokenizer's chat_template is null. "
                 f"Please add a chat_template in tokenizer config"
             )
+
+        if isinstance(tokenizer.chat_template, dict):
+            return tokenizer.chat_template["default"]
         return tokenizer.chat_template
 
     if user_choice.startswith(_DEFAULT_FALLBACK_CHATML_TEMPLATE_CHOICE_PREFIX):

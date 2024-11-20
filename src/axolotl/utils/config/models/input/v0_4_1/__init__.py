@@ -608,6 +608,7 @@ class AxolotlInputConfig(
     ] = None  # whether to use weighting in DPO trainer. If none, default is false in the trainer.
 
     datasets: Optional[conlist(Union[SFTDataset, DPODataset, KTODataset], min_length=1)] = None  # type: ignore
+    dataset_config: Optional[Union[SFTDataset, DPODataset, KTODataset]] = None
     test_datasets: Optional[conlist(Union[SFTDataset, DPODataset, KTODataset], min_length=1)] = None  # type: ignore
     shuffle_merged_datasets: Optional[bool] = True
     dataset_prepared_path: Optional[str] = None

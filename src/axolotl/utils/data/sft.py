@@ -617,6 +617,11 @@ def get_dataset_wrapper(
     dataset_wrapper = None
     dataset_prompter = None
 
+    if cfg.dataset_config is not None:
+        for key in cfg.dataset_config.keys():
+            if not key in config_dataset:
+                config_dataset[key] = cfg.dataset_config[key]
+
     ds_kwargs = {
         "process_count": cfg.dataset_processes,
         "keep_in_memory": cfg.dataset_keep_in_memory is True,
